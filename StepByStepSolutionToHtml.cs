@@ -1,6 +1,6 @@
 public class StepByStepSolutionToHtml
 {
-   public ToHtml(StepByStepSolution sbs)
+   public string ToHtml(StepByStepSolution sbs)
    {
        
    }
