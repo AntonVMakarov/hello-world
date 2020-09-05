@@ -8,7 +8,10 @@ public class StepByStepSolutionToHtml
        // "забуряемся" вниз дерева:
        for(int i=0; i < sbs.ChildNodes.Count; i++)
        {
+           // получается childNodes - это вложенные решения:
+           res += "<div class='inner-step'>";
            res += ToHtml(sbs.ChildNodes[i]);
+           res += "</div>";
        }
 
        // тут, получается мы уже в самом низу дерева
