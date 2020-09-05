@@ -10,5 +10,9 @@ public class StepByStepSolutionToHtml
        {
            res += ToHtml(sbs.ChildNodes[i]);
        }
+
+       // тут, получается мы уже в самом низу дерева
+       // больше нет никаких потомков => начинаем обработку 
+       // текущего узла:
    }
 }
