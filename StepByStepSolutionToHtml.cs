@@ -14,5 +14,17 @@ public class StepByStepSolutionToHtml
        // тут, получается мы уже в самом низу дерева
        // больше нет никаких потомков => начинаем обработку 
        // текущего узла:
+       // сначала преобразуем комментарии в строку:
+       res += "<div class='cmnts'>";
+       res += ConvertCmntsToHtml(sbs.Cmnts);
+       res += "</div>";
+
+       // теперь математическое выражение:
+       res += "<div class='expr'>";
+       res += ConvertExprToHtml(sbs.Expr);
+       res += "</div>";
+
+       // возвращаем результат:
+       return res;
    }
 }
