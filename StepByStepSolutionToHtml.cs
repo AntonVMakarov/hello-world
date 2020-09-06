@@ -4,6 +4,10 @@ public class StepByStepSolutionToHtml
    // решения в xml строку, пригодную для класса отрисовки:
    SBSXmlCmntsToXmlStringRuleFactory _factory = new SBSXmlCmntsToXmlStringRuleFactory();
 
+   // экземпляр объекта для отрисовки строки специального xml формата 
+   // в svg:
+   IPrint _print = new PrintVector();
+
    string SingleStepToHtml(string cmnts, string expr)
    {
        // сначала преобразуем комментарии в строку:
@@ -13,7 +17,7 @@ public class StepByStepSolutionToHtml
 
        // теперь математическое выражение:
        res += "<div class='expr'>";
-       res += ConvertExprToHtml(sbs.Expr);
+       res += _print.Print(sbs.Expr);
        res += "</div>";
 
        // возвращаем результат:
