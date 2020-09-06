@@ -8,6 +8,7 @@ public class StepByStepSolutionToHtml
    // в svg:
    IPrint _print = new PrintVector();
 
+   //<summary>Преобразует шаг комментариев в html формат</summary>
    string SingleStepToHtml(string cmnts, string expr)
    {
        // преобразуем комментарии из xml строки в массив 
@@ -26,6 +27,7 @@ public class StepByStepSolutionToHtml
            res += "</div>";
        }
 
+       // закрываем тег div:
        res += "</div>";
 
        // теперь математическое выражение:
@@ -57,6 +59,8 @@ public class StepByStepSolutionToHtml
        return res;
    }
 
+   ///<summary>Рекурсивная функция для преобразования всех внутренних 
+   ///шагов в html формат</summary>
    string ToHtmlInner(StepByStepSolution sbs)
    {
        // результат:
