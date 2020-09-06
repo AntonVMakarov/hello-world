@@ -1,5 +1,9 @@
 public class StepByStepSolutionToHtml
 {
+   // фабрика, конвертирует xml строку с комментариями подробного 
+   // решения в xml строку, пригодную для класса отрисовки:
+   SBSXmlCmntsToXmlStringRuleFactory _factory = new SBSXmlCmntsToXmlStringRuleFactory();
+
    string SingleStepToHtml(string cmnts, string expr)
    {
        // сначала преобразуем комментарии в строку:
