@@ -10,9 +10,22 @@ public class StepByStepSolutionToHtml
 
    string SingleStepToHtml(string cmnts, string expr)
    {
-       // сначала преобразуем комментарии в строку:
+       // преобразуем комментарии из xml строки в массив 
+       // xml строк специального формата, природных для 
+       // класса отрисовки:
+       string[] cmnts = _factory.CreateInstance(sbs.Cmnts);
+
+       // преобразуем комментарии в строку:
        res += "<div class='cmnts'>";
-       res += ConvertCmntsToHtml(sbs.Cmnts);
+
+       // преобразуем каждый элемент массива:
+       foreach(string line in cmnts)
+       {
+           res += "<div class='cmnts-line'>";
+           res += _print.Print(line);
+           res += "</div>";
+       }
+
        res += "</div>";
 
        // теперь математическое выражение:
@@ -35,7 +48,7 @@ public class StepByStepSolutionToHtml
 
        // теперь проходим по всем потомкам данного 
        // узла и преобразуем их:
-       for(int i=0; i < sbs.ChildNodes.Count; i++)
+       for(int i = 0; i < sbs.ChildNodes.Count; i++)
        {
            res += ToHtmlInner(sbs.ChildNodes[i]);
        }
